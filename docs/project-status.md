@@ -1,46 +1,47 @@
 # DevIQ - Project Status
 
-> Fonte oficial de contexto entre sessões do projeto.
+> Documento de handoff entre sessões. Fonte oficial de contexto do
+> projeto.
 
-**Última atualização:** 2026-07-02
+## Informações Gerais
 
-------------------------------------------------------------------------
+-   Projeto: DevIQ
+-   Status: Em desenvolvimento
+-   Versão alvo: v0.1.0
+-   Última atualização: 2026-07-02
 
-# Visão
+## Visão
 
-**DevIQ** é um framework para analisar a colaboração entre
-desenvolvedores e IA durante o desenvolvimento de software.
+Framework para capturar, estruturar, medir e evoluir a colaboração entre
+desenvolvedores e Inteligência Artificial durante o ciclo de
+desenvolvimento de software.
 
-Princípios:
+## Princípios
 
 -   Evidence First
--   Contrato antes da implementação
--   Independência de Provider
--   Responsabilidade única por artefato
+-   Contract First
+-   Provider Agnostic
+-   Single Responsibility
+-   Reprodutibilidade
+-   Determinismo
 
-------------------------------------------------------------------------
+## Working Agreement
 
-# Working Agreement
+### Papéis
 
-## Papéis
+-   Product Owner / Maintainer: Alexandre
+-   Tech Lead / Senior Engineer / Reviewer: ChatGPT
 
--   Product Owner + Maintainer: Usuário
--   Tech Lead + Senior Engineer + Reviewer: ChatGPT
-
-## Regras
+### Regras
 
 -   Um artefato por vez.
--   Arquivo sempre completo.
--   Sem patches.
--   Sem brainstorming durante a Sprint.
--   Interromper apenas para:
-    -   decisão do PO;
-    -   mudança de arquitetura;
-    -   bloqueio técnico.
+-   Um arquivo completo por resposta.
+-   Commits somente após review.
+-   Arquivos grandes entregues como anexos.
+-   Interromper apenas para decisão arquitetural, bloqueio técnico ou
+    decisão do PO.
 
-------------------------------------------------------------------------
-
-# Estrutura do Projeto
+## Estrutura do Projeto
 
 ``` text
 framework/
@@ -50,78 +51,94 @@ framework/
 ├── metrics/
 │   └── specifications/
 ├── model/
-├── providers/
-└── schema/
+├── schema/
+└── providers/
 ```
 
-------------------------------------------------------------------------
+## Artefatos concluídos
 
-# Artefatos concluídos
-
-## Bootstrap
-
--   README.md
--   LICENSE (Apache 2.0)
--   CHANGELOG.md
--   .gitignore
--   CONTRIBUTING.md
--   CODE_OF_CONDUCT.md
-
-## Framework
+### Contratos
 
 -   RFC-001 -- Evidence Model
+
+### Modelo
+
 -   model/evidence-model.yaml
+
+### Schema
+
 -   schema/evidence-model.schema.yaml
--   examples/minimal.yaml
--   examples/complete.yaml
+
+### Catálogos
+
 -   catalog/contribution-weights.yaml
 -   catalog/contribution-outcomes.yaml
 
-------------------------------------------------------------------------
+### Exemplos
 
-# Decisões Arquiteturais
+-   examples/minimal.yaml
+-   examples/complete.yaml
+
+### Métricas
+
+-   metrics/specifications/iai.md
+
+## Decisões Arquiteturais
 
 -   RFC define conceitos.
--   Model define a estrutura canônica.
+-   Model representa o modelo canônico.
 -   Schema define validação.
--   Catalog define constantes do Framework.
--   Examples demonstram utilização.
--   Métricas nunca contêm constantes de negócio.
--   Pesos são fixos e definidos pelo Framework.
+-   Catalog contém constantes do framework.
+-   Métricas nunca embutem constantes.
+-   Pesos são definidos pelo Framework.
 -   Outcomes são definidos pelo Framework.
+-   JSON Schema Draft 2020-12 como padrão de validação.
 
-------------------------------------------------------------------------
+## Estado Atual
 
-# Sprint Atual
+Último artefato concluído:
 
-## Concluído
+`framework/metrics/specifications/iai.md`
 
--   PR-001 a PR-013.
+Próximo artefato sugerido:
 
-## Próximo artefato
+`framework/metrics/specifications/aips.md`
 
-``` text
-framework/metrics/specifications/iai.md
-```
+Dependências já disponíveis:
 
-Objetivo:
+-   RFC-001
+-   Evidence Model
+-   JSON Schema
+-   Contribution Weights
+-   Contribution Outcomes
+-   IAI
 
-Especificar formalmente a métrica **IAI (AI Assistance Index)**.
+## Backlog Arquitetural
 
-------------------------------------------------------------------------
+Não aprovado (não implementar):
 
-# Backlog Arquitetural
+-   RFC Contribution Model
+-   Evolução dos catálogos
+-   Hardening das RFCs para v1.0
 
-Não há itens aprovados pendentes.
+## Convenções
 
-Ideias futuras somente mediante aprovação do Product Owner.
+-   Um diretório = uma responsabilidade.
+-   Um artefato = um commit.
+-   Arquivos completos sempre.
+-   Sem patches.
+-   Review antes do commit.
 
-------------------------------------------------------------------------
+## Como retomar o projeto
 
-# Como iniciar uma nova conversa
+Em uma nova conversa:
 
-Utilize a seguinte mensagem:
+1.  Anexe este arquivo.
+2.  Informe o próximo artefato.
+3.  Anexe somente dependências específicas, se necessário.
 
-> Estamos continuando o projeto DevIQ. Considere este arquivo como a
-> fonte oficial de contexto. O próximo artefato é
-> `framework/metrics/specifications/iai.md`.
+Exemplo:
+
+> Estamos continuando o DevIQ. Considere este arquivo como fonte
+> oficial. O próximo artefato é
+> framework/metrics/specifications/aips.md.
