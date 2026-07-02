@@ -156,3 +156,270 @@ O Evidence Model é responsável por:
 O Evidence Model não executa processamento, cálculos ou inferências.
 
 Seu papel é exclusivamente representar o estado consolidado da sessão.
+
+---
+
+# 8. Estrutura Geral
+
+O Evidence Model é composto por blocos independentes, cada um com responsabilidade única e bem definida.
+
+```text
+Evidence Model
+│
+├── metadata
+├── issue
+├── git
+├── session
+├── analysis
+├── metrics
+├── knowledge
+├── developer_notes
+└── limitations
+```
+
+Cada bloco representa um domínio específico da sessão analisada.
+
+---
+
+# 9. Blocos do Modelo
+
+## metadata
+
+Contém informações sobre o próprio documento gerado.
+
+Seu objetivo é garantir rastreabilidade e compatibilidade entre versões.
+
+Responsável pelo preenchimento:
+
+* Provider
+
+Consumidores:
+
+* Todos os módulos
+
+Campos previstos:
+
+* report_id
+* framework_version
+* provider
+* provider_version
+* generated_at
+
+---
+
+## issue
+
+Representa a identificação da tarefa analisada.
+
+Este bloco deve conter apenas informações conhecidas e verificáveis.
+
+Responsável pelo preenchimento:
+
+* Session Analysis
+
+Consumidores:
+
+* Metrics
+* Session Report
+
+Campos previstos:
+
+* key
+* title
+* type
+* project
+* priority
+* labels
+
+---
+
+## git
+
+Representa o relacionamento da sessão com o repositório de código.
+
+Responsável pelo preenchimento:
+
+* Provider
+
+Consumidores:
+
+* Metrics
+* Session Report
+
+Campos previstos:
+
+* repository
+* branch
+* commits
+* pull_request
+
+---
+
+## session
+
+Contém informações gerais da sessão de desenvolvimento.
+
+Responsável pelo preenchimento:
+
+* Session Analysis
+
+Consumidores:
+
+* Metrics
+* Session Report
+
+Campos previstos:
+
+* started_at
+* finished_at
+* duration
+* confidence
+
+---
+
+## analysis
+
+Representa o resultado consolidado da análise realizada pelo Provider.
+
+Este é o principal bloco produzido pelo processo de Session Analysis.
+
+Responsável pelo preenchimento:
+
+* Session Analysis
+
+Consumidores:
+
+* Metrics
+* Session Report
+* Lessons Learned
+
+Campos previstos:
+
+* objective
+* summary
+* task_type
+* prompt_groups
+* categories
+* collaboration_points
+* evidence
+* discarded_suggestions
+* assumptions
+
+---
+
+## metrics
+
+Armazena todas as métricas calculadas pelo framework.
+
+Responsável pelo preenchimento:
+
+* Metrics
+
+Consumidores:
+
+* Session Report
+* Dashboards
+
+Campos previstos:
+
+* iai
+* aips
+* icp
+* roi
+
+Novas métricas poderão ser adicionadas em versões futuras sem quebrar compatibilidade.
+
+---
+
+## knowledge
+
+Representa conhecimento reutilizável identificado durante a sessão.
+
+Responsável pelo preenchimento:
+
+* Lessons Learned
+
+Consumidores:
+
+* Knowledge Base
+* Dashboards
+
+Campos previstos:
+
+* lessons_learned
+* best_prompts
+* reusable_patterns
+* recommendations
+
+---
+
+## developer_notes
+
+Espaço reservado para observações registradas manualmente pelo desenvolvedor.
+
+Este bloco nunca deve ser preenchido automaticamente.
+
+Responsável:
+
+* Desenvolvedor
+
+---
+
+## limitations
+
+Lista limitações identificadas durante a geração do relatório.
+
+Exemplos:
+
+* contexto incompleto;
+* ausência de histórico Git;
+* ausência da Issue;
+* baixa quantidade de evidências.
+
+Responsável:
+
+* Session Analysis
+
+---
+
+# 10. Regras Gerais
+
+As seguintes regras aplicam-se a todo o Evidence Model.
+
+## Responsabilidade Única
+
+Cada bloco possui um único responsável oficial pelo preenchimento.
+
+---
+
+## Não Inventar Dados
+
+Campos sem informação disponível devem permanecer vazios.
+
+Nunca devem ser preenchidos com estimativas ou valores fictícios.
+
+---
+
+## Evidências Obrigatórias
+
+Conclusões derivadas devem possuir evidências correspondentes registradas no modelo.
+
+---
+
+## Inferências Explícitas
+
+Sempre que uma informação for inferida, seu nível de confiança deverá ser registrado.
+
+---
+
+## Compatibilidade
+
+Campos existentes nunca devem alterar seu significado.
+
+Novos campos deverão preservar compatibilidade sempre que possível.
+
+---
+
+## Extensibilidade
+
+Novos blocos poderão ser adicionados em versões futuras desde que não invalidem consumidores existentes.
