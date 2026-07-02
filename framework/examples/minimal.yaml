@@ -1,0 +1,21 @@
+schema_version: "1.0.0"
+
+metadata:
+  report_id: "SITS-1234"
+  framework_version: "1.0.0-alpha"
+  provider:
+    name: "windsurf"
+    version: "1.0.0"
+  generated_at: "2026-07-02T10:30:00Z"
+
+issue:
+  key: "SITS-1234"
+  title: "Correção do cálculo de juros"
+
+session:
+  started_at: "2026-07-02T09:00:00Z"
+  finished_at: "2026-07-02T10:30:00Z"
+
+analysis:
+  objective: "Corrigir o cálculo de juros compostos."
+  summary: "A sessão identificou a causa do erro, implementou a correção e validou o resultado."
