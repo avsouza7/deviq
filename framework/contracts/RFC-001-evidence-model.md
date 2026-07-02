@@ -1,119 +1,44 @@
 # RFC-001 — Evidence Model
 
-| Campo                  | Valor          |
-| ---------------------- | -------------- |
-| **RFC**                | 001            |
-| **Título**             | Evidence Model |
-| **Status**             | Accepted       |
-| **Versão**             | 1.0.0-alpha    |
-| **Autor**              | DevIQ Team     |
-| **Última atualização** | 2026-07-02     |
+| Campo | Valor |
+|-------|-------|
+| **RFC** | 001 |
+| **Título** | Evidence Model |
+| **Status** | Accepted |
+| **Versão** | 1.0.0-alpha |
+| **Autor** | DevIQ Team |
 
----
+## 1. Objetivo
 
-# 1. Contexto
+Definir o contrato conceitual oficial utilizado pelos componentes do DevIQ para representar evidências produzidas durante uma sessão de desenvolvimento assistida por IA.
 
-O DevIQ é uma plataforma voltada à análise da colaboração entre desenvolvedores e Inteligência Artificial durante o desenvolvimento de software.
+## 2. Escopo
 
-Para que seus módulos permaneçam desacoplados, reutilizáveis e independentes da ferramenta utilizada, é necessário um contrato comum de troca de informações.
+Esta RFC define:
 
-Esta RFC define esse contrato.
+- propósito do Evidence Model;
+- princípios;
+- responsabilidades;
+- regras de evolução;
+- compatibilidade;
+- conformidade.
 
-O **Evidence Model** representa a estrutura oficial utilizada pelo DevIQ para armazenar, compartilhar e consumir as informações produzidas durante uma sessão de desenvolvimento.
+A estrutura formal (campos, tipos e validações) **não** faz parte desta RFC e será definida em `framework/schema/evidence-model.yaml`.
 
-Todos os componentes da plataforma devem utilizar este modelo como única forma oficial de comunicação.
+## 3. Motivação
 
----
+O DevIQ necessita de um contrato único para desacoplar Producers e Consumers, permitindo que diferentes Providers produzam informações compatíveis.
 
-# 2. Problema
+## 4. Princípios
 
-Sem um modelo comum de dados, cada componente tenderia a produzir estruturas próprias.
+- Contrato único.
+- Independência de ferramenta.
+- Evidence First.
+- Clareza sobre inferência.
+- Evolução compatível.
+- Responsabilidade única.
 
-Essa abordagem geraria problemas como:
-
-* forte acoplamento entre módulos;
-* dificuldade para adicionar novos Providers;
-* duplicação de lógica;
-* inconsistências entre métricas;
-* dificuldade para evolução do framework.
-
-Além disso, diferentes ferramentas de IA poderiam representar a mesma informação de maneiras distintas, tornando inviável a comparação entre sessões.
-
----
-
-# 3. Objetivos
-
-O Evidence Model possui os seguintes objetivos:
-
-* estabelecer um contrato único para todo o framework;
-* desacoplar Producers e Consumers;
-* permitir múltiplos Providers;
-* servir de entrada para métricas e relatórios;
-* facilitar evolução e versionamento;
-* permitir validação por Schema.
-
----
-
-# 4. Não Objetivos
-
-Esta RFC não define:
-
-* algoritmos das métricas;
-* formato dos relatórios;
-* integração com Git;
-* integração com Jira;
-* regras específicas de Providers;
-* implementação técnica de armazenamento.
-
-Esses assuntos são tratados por artefatos próprios.
-
----
-
-# 5. Princípios
-
-O Evidence Model foi concebido seguindo os princípios arquiteturais do DevIQ.
-
-## Contrato Único
-
-Todos os módulos compartilham o mesmo contrato de dados.
-
----
-
-## Independência de Ferramenta
-
-O modelo não deve conter informações específicas de um Provider.
-
-Qualquer ferramenta compatível poderá produzir ou consumir o mesmo contrato.
-
----
-
-## Evidências Antes de Inferências
-
-Toda conclusão derivada deve estar apoiada por evidências registradas no modelo.
-
-Inferências sem sustentação não fazem parte do contrato.
-
----
-
-## Evolução Compatível
-
-Sempre que possível, novas versões devem preservar compatibilidade com versões anteriores.
-
-Mudanças incompatíveis exigem incremento de versão major.
-
----
-
-## Simplicidade
-
-O modelo deve conter apenas informações necessárias para representar a sessão.
-
-Informações redundantes ou deriváveis não devem ser armazenadas.
-
----
-
-# 6. Arquitetura
-
-O Evidence Model ocupa uma posição central dentro do DevIQ.
+## 5. Arquitetura
 
 ```text
 Developer Session
@@ -124,9 +49,9 @@ Session Analysis
         ▼
 Evidence Model
         │
- ┌──────┼───────────────┐
- ▼      ▼               ▼
-Metrics Report  Lessons Learned
+ ┌──────┼──────────────┐
+ ▼      ▼              ▼
+Metrics Report Lessons Learned
         │
         ▼
 Knowledge Base
@@ -135,489 +60,91 @@ Knowledge Base
 Dashboards
 ```
 
-Cada módulo possui responsabilidade própria.
+O Evidence Model é o único contrato oficial entre os componentes do framework.
 
-O único mecanismo oficial de troca de informações entre eles é o Evidence Model.
+## 6. Blocos Conceituais
 
-Nenhum componente deve acessar diretamente estruturas internas produzidas por outro componente.
+O modelo é composto pelos seguintes domínios:
 
----
+- metadata
+- issue
+- git
+- session
+- analysis
+- metrics
+- knowledge
+- developer_notes
+- limitations
 
-# 7. Responsabilidades
-
-O Evidence Model é responsável por:
-
-* representar uma sessão de desenvolvimento;
-* consolidar evidências produzidas pela análise;
-* fornecer dados para métricas;
-* fornecer dados para relatórios;
-* permitir rastreabilidade das decisões.
-
-O Evidence Model não executa processamento, cálculos ou inferências.
-
-Seu papel é exclusivamente representar o estado consolidado da sessão.
-
----
-
-# 8. Estrutura Geral
-
-O Evidence Model é composto por blocos independentes, cada um com responsabilidade única e bem definida.
+A definição estrutural destes blocos encontra-se em:
 
 ```text
-Evidence Model
-│
-├── metadata
-├── issue
-├── git
-├── session
-├── analysis
-├── metrics
-├── knowledge
-├── developer_notes
-└── limitations
+framework/schema/evidence-model.yaml
 ```
 
-Cada bloco representa um domínio específico da sessão analisada.
+## 7. Responsabilidades
 
----
+### Producers
 
-# 9. Blocos do Modelo
+Responsáveis por produzir um Evidence Model válido.
 
-## metadata
+### Consumers
 
-Contém informações sobre o próprio documento gerado.
+Responsáveis por consumir o contrato sem depender de estruturas internas de outros módulos.
 
-Seu objetivo é garantir rastreabilidade e compatibilidade entre versões.
+## 8. Regras
 
-Responsável pelo preenchimento:
+- Não inventar dados.
+- Inferências devem ser identificáveis.
+- Evidências sustentam conclusões.
+- Cada informação possui um responsável.
+- Campos desconhecidos permanecem vazios.
 
-* Provider
+## 9. Compatibilidade
 
-Consumidores:
+O contrato deve preservar retrocompatibilidade sempre que possível.
 
-* Todos os módulos
+Mudanças incompatíveis exigem incremento MAJOR.
 
-Campos previstos:
+## 10. Versionamento
 
-* report_id
-* framework_version
-* provider
-* provider_version
-* generated_at
+O Evidence Model utiliza Semantic Versioning.
 
----
+- MAJOR: alterações incompatíveis.
+- MINOR: evolução compatível.
+- PATCH: correções editoriais.
 
-## issue
+## 11. Conformidade
 
-Representa a identificação da tarefa analisada.
+Uma implementação é considerada conforme quando:
 
-Este bloco deve conter apenas informações conhecidas e verificáveis.
+- respeita esta RFC;
+- atende ao Schema oficial;
+- preserva a semântica do contrato.
 
-Responsável pelo preenchimento:
+A validação estrutural pertence ao Schema.
 
-* Session Analysis
+A validação conceitual pertence a esta RFC.
 
-Consumidores:
+## 12. Referências
 
-* Metrics
-* Session Report
+- `framework/schema/evidence-model.yaml`
+- Session Analysis Rule
+- Metrics Specification
+- Session Report Template
 
-Campos previstos:
+## 13. Histórico
 
-* key
-* title
-* type
-* project
-* priority
-* labels
+| Versão | Descrição |
+|---------|-----------|
+| 1.0.0-alpha | Primeira versão da RFC. |
 
----
+## 14. Status
 
-## git
+Accepted.
 
-Representa o relacionamento da sessão com o repositório de código.
+## 15. Resumo
 
-Responsável pelo preenchimento:
+Esta RFC estabelece o contrato conceitual oficial do Evidence Model.
 
-* Provider
-
-Consumidores:
-
-* Metrics
-* Session Report
-
-Campos previstos:
-
-* repository
-* branch
-* commits
-* pull_request
-
----
-
-## session
-
-Contém informações gerais da sessão de desenvolvimento.
-
-Responsável pelo preenchimento:
-
-* Session Analysis
-
-Consumidores:
-
-* Metrics
-* Session Report
-
-Campos previstos:
-
-* started_at
-* finished_at
-* duration
-* confidence
-
----
-
-## analysis
-
-Representa o resultado consolidado da análise realizada pelo Provider.
-
-Este é o principal bloco produzido pelo processo de Session Analysis.
-
-Responsável pelo preenchimento:
-
-* Session Analysis
-
-Consumidores:
-
-* Metrics
-* Session Report
-* Lessons Learned
-
-Campos previstos:
-
-* objective
-* summary
-* task_type
-* prompt_groups
-* categories
-* collaboration_points
-* evidence
-* discarded_suggestions
-* assumptions
-
----
-
-## metrics
-
-Armazena todas as métricas calculadas pelo framework.
-
-Responsável pelo preenchimento:
-
-* Metrics
-
-Consumidores:
-
-* Session Report
-* Dashboards
-
-Campos previstos:
-
-* iai
-* aips
-* icp
-* roi
-
-Novas métricas poderão ser adicionadas em versões futuras sem quebrar compatibilidade.
-
----
-
-## knowledge
-
-Representa conhecimento reutilizável identificado durante a sessão.
-
-Responsável pelo preenchimento:
-
-* Lessons Learned
-
-Consumidores:
-
-* Knowledge Base
-* Dashboards
-
-Campos previstos:
-
-* lessons_learned
-* best_prompts
-* reusable_patterns
-* recommendations
-
----
-
-## developer_notes
-
-Espaço reservado para observações registradas manualmente pelo desenvolvedor.
-
-Este bloco nunca deve ser preenchido automaticamente.
-
-Responsável:
-
-* Desenvolvedor
-
----
-
-## limitations
-
-Lista limitações identificadas durante a geração do relatório.
-
-Exemplos:
-
-* contexto incompleto;
-* ausência de histórico Git;
-* ausência da Issue;
-* baixa quantidade de evidências.
-
-Responsável:
-
-* Session Analysis
-
----
-
-# 10. Regras Gerais
-
-As seguintes regras aplicam-se a todo o Evidence Model.
-
-## Responsabilidade Única
-
-Cada bloco possui um único responsável oficial pelo preenchimento.
-
----
-
-## Não Inventar Dados
-
-Campos sem informação disponível devem permanecer vazios.
-
-Nunca devem ser preenchidos com estimativas ou valores fictícios.
-
----
-
-## Evidências Obrigatórias
-
-Conclusões derivadas devem possuir evidências correspondentes registradas no modelo.
-
----
-
-## Inferências Explícitas
-
-Sempre que uma informação for inferida, seu nível de confiança deverá ser registrado.
-
----
-
-## Compatibilidade
-
-Campos existentes nunca devem alterar seu significado.
-
-Novos campos deverão preservar compatibilidade sempre que possível.
-
----
-
-## Extensibilidade
-
-Novos blocos poderão ser adicionados em versões futuras desde que não invalidem consumidores existentes.
-
----
-
-# 11. Compatibilidade
-
-A evolução do Evidence Model deve preservar compatibilidade entre versões sempre que possível.
-
-A compatibilidade permite que diferentes componentes do DevIQ evoluam de forma independente, reduzindo impactos entre Producers e Consumers.
-
-Toda alteração deve ser avaliada quanto ao seu impacto sobre implementações existentes.
-
----
-
-# 12. Versionamento
-
-O Evidence Model utiliza Versionamento Semântico (SemVer).
-
-Formato:
-
-```text
-MAJOR.MINOR.PATCH
-```
-
-## MAJOR
-
-Incrementado quando ocorrer uma alteração incompatível com versões anteriores.
-
-Exemplos:
-
-* remoção de blocos;
-* alteração de significado de um campo;
-* mudança obrigatória na estrutura do modelo.
-
----
-
-## MINOR
-
-Incrementado quando forem adicionadas funcionalidades compatíveis.
-
-Exemplos:
-
-* novos blocos opcionais;
-* novos atributos opcionais;
-* novas regras compatíveis.
-
----
-
-## PATCH
-
-Incrementado para correções que não alterem o contrato.
-
-Exemplos:
-
-* ajustes editoriais;
-* esclarecimentos;
-* correções de documentação.
-
----
-
-# 13. Evolução
-
-A evolução do Evidence Model deve seguir os princípios abaixo.
-
-## Retrocompatibilidade
-
-Sempre que possível, novas versões devem ser compatíveis com versões anteriores.
-
----
-
-## Extensão
-
-Novas capacidades devem ser adicionadas por extensão do modelo, evitando alterações destrutivas.
-
----
-
-## Clareza
-
-Toda evolução deve possuir motivação técnica claramente documentada.
-
----
-
-## Rastreabilidade
-
-Mudanças no contrato devem possuir referência à respectiva RFC ou ADR que as originou.
-
----
-
-# 14. Implementações
-
-Todo Provider deve produzir um Evidence Model compatível com a versão do contrato suportada.
-
-Todo Consumer deve validar a versão do modelo antes de iniciar qualquer processamento.
-
-Caso uma versão incompatível seja identificada, o processamento deve ser interrompido e o erro reportado de forma explícita.
-
----
-
-# 15. Conformidade
-
-Uma implementação será considerada compatível com o DevIQ quando:
-
-* produzir um Evidence Model válido;
-* respeitar as regras desta RFC;
-* atender ao Schema oficial correspondente;
-* preservar a semântica definida para cada bloco.
-
-A validação estrutural é responsabilidade do Schema.
-
-A validação conceitual é responsabilidade desta RFC.
-
----
-
-# 16. Referências
-
-## Documentos relacionados
-
-* Evidence Model Schema
-* Session Analysis Rule
-* Metrics Specification
-* Session Report Template
-
----
-
-## RFCs relacionadas
-
-Atualmente não existem RFCs dependentes desta especificação.
-
----
-
-# 17. Considerações Finais
-
-O Evidence Model estabelece a linguagem comum utilizada por todos os componentes do DevIQ.
-
-Sua principal responsabilidade é garantir que informações produzidas por diferentes Providers possam ser processadas de maneira consistente, previsível e independente da ferramenta de origem.
-
-A evolução deste contrato deverá priorizar simplicidade, estabilidade e compatibilidade, preservando a capacidade do framework de crescer sem aumentar o acoplamento entre seus componentes.
-
----
-
-# 18. Critérios de Conformidade
-
-Uma implementação é considerada compatível com esta RFC quando:
-
-* produz um Evidence Model válido;
-* respeita a semântica definida para cada bloco;
-* é validada com sucesso pelo Schema oficial correspondente;
-* preserva a compatibilidade entre versões suportadas.
-
-A conformidade não depende da ferramenta utilizada para produzir o modelo.
-
-Qualquer Provider poderá ser considerado compatível desde que respeite o contrato definido nesta RFC.
-
----
-
-# 19. Critérios de Aceitação
-
-Esta RFC será considerada implementada quando existirem os seguintes artefatos:
-
-* Evidence Model Schema;
-* exemplo mínimo do modelo;
-* exemplo completo do modelo;
-* validação do Schema;
-* implementação de um Provider compatível.
-
----
-
-# 20. Histórico de Revisões
-
-| Versão      | Data       | Descrição               |
-| ----------- | ---------- | ----------------------- |
-| 1.0.0-alpha | 2026-07-02 | Primeira versão da RFC. |
-
----
-
-# 21. Status
-
-Esta RFC encontra-se em estado **Accepted**.
-
-Alterações futuras deverão preservar compatibilidade sempre que possível e seguir o processo de evolução definido pelo DevIQ.
-
----
-
-# 22. Resumo
-
-Esta RFC define o contrato conceitual do Evidence Model.
-
-Ela estabelece:
-
-* o propósito do modelo;
-* sua posição na arquitetura;
-* responsabilidades de cada bloco;
-* regras de evolução;
-* princípios de compatibilidade;
-* responsabilidades de Producers e Consumers.
-
-A estrutura física do documento é definida exclusivamente pelo Schema correspondente.
-
-Todos os demais componentes do DevIQ deverão utilizar esta RFC como referência conceitual para implementação e evolução do framework.
+Ela define responsabilidades, princípios e regras. A representação estrutural é responsabilidade exclusiva do Schema correspondente.
