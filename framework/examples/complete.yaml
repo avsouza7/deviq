@@ -1,0 +1,77 @@
+schema_version: "1.0.0"
+
+metadata:
+  report_id: "SITS-1234-implementacao-calculo-juros"
+  framework_version: "1.0.0-alpha"
+  provider:
+    name: "windsurf"
+    version: "1.0.0"
+  generated_at: "2026-07-02T10:30:00Z"
+
+issue:
+  key: "SITS-1234"
+  title: "Correção do cálculo de juros"
+  type: "Bug"
+  project: "SITS"
+  priority: "High"
+  labels:
+    - financeiro
+    - juros
+
+git:
+  repository: "git@github.com:alexandre/deviq.git"
+  branch: "feature/rfc-001-evidence-model"
+  commits:
+    - "a1b2c3d"
+    - "d4e5f6g"
+  pull_request: "PR-010"
+
+session:
+  started_at: "2026-07-02T09:00:00Z"
+  finished_at: "2026-07-02T10:30:00Z"
+  duration_seconds: 5400
+  confidence: 0.93
+
+analysis:
+  objective: "Corrigir o cálculo de juros compostos."
+  summary: "A IA auxiliou na identificação da causa raiz, implementação e validação."
+  task_type: "bugfix"
+  prompt_groups:
+    - Investigação
+    - Implementação
+    - Validação
+  categories:
+    - Backend
+    - Regra de Negócio
+  collaboration_points:
+    - Identificação da causa raiz
+    - Refatoração da rotina
+  evidence:
+    - Ajuste da fórmula de cálculo
+    - Testes executados com sucesso
+  discarded_suggestions:
+    - Alteração da modelagem do banco
+  assumptions:
+    - Taxas fornecidas em percentual
+
+metrics:
+  iai: 0.91
+  aips: 0.88
+  icp: 0.95
+  roi: 3.2
+
+knowledge:
+  lessons_learned:
+    - Validar fórmulas financeiras com casos conhecidos.
+  best_prompts:
+    - "Explique a causa do erro antes de sugerir a correção."
+  reusable_patterns:
+    - Fluxo de investigação -> correção -> validação
+  recommendations:
+    - Adicionar testes de regressão para cálculos financeiros.
+
+developer_notes:
+  - Revisar documentação da API financeira.
+
+limitations:
+  - Não foi analisado o histórico anterior da feature.
