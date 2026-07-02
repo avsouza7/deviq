@@ -423,3 +423,201 @@ Novos campos deverão preservar compatibilidade sempre que possível.
 ## Extensibilidade
 
 Novos blocos poderão ser adicionados em versões futuras desde que não invalidem consumidores existentes.
+
+---
+
+# 11. Compatibilidade
+
+A evolução do Evidence Model deve preservar compatibilidade entre versões sempre que possível.
+
+A compatibilidade permite que diferentes componentes do DevIQ evoluam de forma independente, reduzindo impactos entre Producers e Consumers.
+
+Toda alteração deve ser avaliada quanto ao seu impacto sobre implementações existentes.
+
+---
+
+# 12. Versionamento
+
+O Evidence Model utiliza Versionamento Semântico (SemVer).
+
+Formato:
+
+```text
+MAJOR.MINOR.PATCH
+```
+
+## MAJOR
+
+Incrementado quando ocorrer uma alteração incompatível com versões anteriores.
+
+Exemplos:
+
+* remoção de blocos;
+* alteração de significado de um campo;
+* mudança obrigatória na estrutura do modelo.
+
+---
+
+## MINOR
+
+Incrementado quando forem adicionadas funcionalidades compatíveis.
+
+Exemplos:
+
+* novos blocos opcionais;
+* novos atributos opcionais;
+* novas regras compatíveis.
+
+---
+
+## PATCH
+
+Incrementado para correções que não alterem o contrato.
+
+Exemplos:
+
+* ajustes editoriais;
+* esclarecimentos;
+* correções de documentação.
+
+---
+
+# 13. Evolução
+
+A evolução do Evidence Model deve seguir os princípios abaixo.
+
+## Retrocompatibilidade
+
+Sempre que possível, novas versões devem ser compatíveis com versões anteriores.
+
+---
+
+## Extensão
+
+Novas capacidades devem ser adicionadas por extensão do modelo, evitando alterações destrutivas.
+
+---
+
+## Clareza
+
+Toda evolução deve possuir motivação técnica claramente documentada.
+
+---
+
+## Rastreabilidade
+
+Mudanças no contrato devem possuir referência à respectiva RFC ou ADR que as originou.
+
+---
+
+# 14. Implementações
+
+Todo Provider deve produzir um Evidence Model compatível com a versão do contrato suportada.
+
+Todo Consumer deve validar a versão do modelo antes de iniciar qualquer processamento.
+
+Caso uma versão incompatível seja identificada, o processamento deve ser interrompido e o erro reportado de forma explícita.
+
+---
+
+# 15. Conformidade
+
+Uma implementação será considerada compatível com o DevIQ quando:
+
+* produzir um Evidence Model válido;
+* respeitar as regras desta RFC;
+* atender ao Schema oficial correspondente;
+* preservar a semântica definida para cada bloco.
+
+A validação estrutural é responsabilidade do Schema.
+
+A validação conceitual é responsabilidade desta RFC.
+
+---
+
+# 16. Referências
+
+## Documentos relacionados
+
+* Evidence Model Schema
+* Session Analysis Rule
+* Metrics Specification
+* Session Report Template
+
+---
+
+## RFCs relacionadas
+
+Atualmente não existem RFCs dependentes desta especificação.
+
+---
+
+# 17. Considerações Finais
+
+O Evidence Model estabelece a linguagem comum utilizada por todos os componentes do DevIQ.
+
+Sua principal responsabilidade é garantir que informações produzidas por diferentes Providers possam ser processadas de maneira consistente, previsível e independente da ferramenta de origem.
+
+A evolução deste contrato deverá priorizar simplicidade, estabilidade e compatibilidade, preservando a capacidade do framework de crescer sem aumentar o acoplamento entre seus componentes.
+
+---
+
+# 18. Critérios de Conformidade
+
+Uma implementação é considerada compatível com esta RFC quando:
+
+* produz um Evidence Model válido;
+* respeita a semântica definida para cada bloco;
+* é validada com sucesso pelo Schema oficial correspondente;
+* preserva a compatibilidade entre versões suportadas.
+
+A conformidade não depende da ferramenta utilizada para produzir o modelo.
+
+Qualquer Provider poderá ser considerado compatível desde que respeite o contrato definido nesta RFC.
+
+---
+
+# 19. Critérios de Aceitação
+
+Esta RFC será considerada implementada quando existirem os seguintes artefatos:
+
+* Evidence Model Schema;
+* exemplo mínimo do modelo;
+* exemplo completo do modelo;
+* validação do Schema;
+* implementação de um Provider compatível.
+
+---
+
+# 20. Histórico de Revisões
+
+| Versão      | Data       | Descrição               |
+| ----------- | ---------- | ----------------------- |
+| 1.0.0-alpha | 2026-07-02 | Primeira versão da RFC. |
+
+---
+
+# 21. Status
+
+Esta RFC encontra-se em estado **Accepted**.
+
+Alterações futuras deverão preservar compatibilidade sempre que possível e seguir o processo de evolução definido pelo DevIQ.
+
+---
+
+# 22. Resumo
+
+Esta RFC define o contrato conceitual do Evidence Model.
+
+Ela estabelece:
+
+* o propósito do modelo;
+* sua posição na arquitetura;
+* responsabilidades de cada bloco;
+* regras de evolução;
+* princípios de compatibilidade;
+* responsabilidades de Producers e Consumers.
+
+A estrutura física do documento é definida exclusivamente pelo Schema correspondente.
+
+Todos os demais componentes do DevIQ deverão utilizar esta RFC como referência conceitual para implementação e evolução do framework.
