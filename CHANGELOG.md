@@ -8,47 +8,52 @@ Este projeto adota Versionamento Semântico (SemVer) e um modelo de changelog or
 
 ## v0.1.0-alpha
 
-> Primeira versão pública da arquitetura do DevIQ.
+> Foundation Milestone concluído.
 
 ### Arquitetura
 
-* Definição da arquitetura inicial do DevIQ.
-* Separação entre Framework e Providers.
-* Introdução da arquitetura orientada por contratos.
-* Definição do Canonical Evidence Model como contrato central do framework.
-* Definição da arquitetura Schema Driven.
+- Definição da arquitetura base do DevIQ.
+- Separação entre Framework e Providers.
+- Arquitetura orientada por contratos (Contract First).
+- Canonical Evidence Model estabelecido como contrato central.
+- Arquitetura Schema Driven.
 
-### Framework
+### Core Framework
 
-* Criação do módulo ACAF (AI Collaboration Analytics Framework).
-* Definição da estrutura inicial do framework.
-* Organização dos contratos, métricas, templates e exemplos.
+- RFC-001 — Evidence Model.
+- Canonical Evidence Model.
+- JSON Schema oficial.
+- Catálogo de pesos de contribuição.
+- Catálogo de resultados de contribuição.
+- Exemplos oficiais (Minimal e Complete).
 
-### Providers
+### Métricas
 
-* Definição da estrutura inicial do Provider Windsurf.
-* Organização das Rules e Workflows.
+- Especificação da métrica IAI.
+- Especificação da métrica AIPS.
+- Especificação da métrica ICP.
 
 ### Documentação
 
-* Criação do README inicial.
-* Criação do Manifesto do projeto.
-* Criação do Glossário.
-* Definição da estrutura de documentação.
+- README.
+- CONTRIBUTING.
+- CHANGELOG.
+- CODE_OF_CONDUCT.
+- Documentação do Foundation Milestone.
 
-### RFCs
+### Architecture Review
 
-* RFC-001 — Evidence Model.
-
-### ADRs
-
-* ADR-001 até ADR-018.
+- Revisão arquitetural concluída.
+- Nenhum bloqueio arquitetural identificado.
+- RFC-002 definida como próxima evolução do domínio.
+- Especificação de ROI adiada até a conclusão da RFC-002.
 
 ### Próximos Passos
 
-* Implementação do Schema do Evidence Model.
-* Exemplos oficiais.
-* Métricas iniciais (IAI, AIPS, ICP e ROI).
-* Session Report.
-* Lessons Learned.
-* Workflow do Provider Windsurf.
+- Foundation Freeze.
+- RFC-002 — Contribution Model.
+- Contribution Engine.
+- Metric Engine.
+- Session Analysis.
+- Reporting.
+- Providers.
