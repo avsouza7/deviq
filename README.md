@@ -37,6 +37,8 @@ Concluído:
 - Exemplos
 - Métricas IAI, AIPS e ICP
 
+Foundation Milestone: **Concluído**
+
 Em evolução:
 
 - RFC-002 — Contribution Model
