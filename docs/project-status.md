@@ -55,6 +55,14 @@ Framework para capturar, estruturar, medir e evoluir a colaboração entre desen
 - framework/metrics/specifications/aips.md
 - framework/metrics/specifications/icp.md
 
+### Session Analysis
+
+- framework/session-analysis/*
+
+### Reporting
+
+- framework/reporting/*
+
 ## Architecture Review
 
 Status: Concluída
@@ -67,7 +75,7 @@ Status: Concluída
 
 Último artefato concluído:
 
-`framework/metrics/specifications/icp.md`
+`framework/reporting/executive-summary.md`
 
 Próximo marco:
 
@@ -81,7 +89,8 @@ Foundation Freeze.
 
 ## Próximos artefatos
 
-- Revisão README.md
-- Revisão CHANGELOG.md
-- Revisão CONTRIBUTING.md
 - Foundation Freeze
+- Epic 5 — Knowledge
+- Knowledge Model
+- Knowledge Catalog
+- Knowledge Examples
