@@ -23,7 +23,7 @@ Esta RFC define:
 - compatibilidade;
 - conformidade.
 
-A estrutura formal (campos, tipos e validações) **não** faz parte desta RFC e será definida em `framework/schema/evidence-model.yaml`.
+A estrutura formal (campos, tipos e validações) **não** faz parte desta RFC e será definida em `framework/schema/evidence-model.schema.yaml`.
 
 ## 3. Motivação
 
@@ -79,7 +79,7 @@ O modelo é composto pelos seguintes domínios:
 A definição estrutural destes blocos encontra-se em:
 
 ```text
-framework/schema/evidence-model.yaml
+framework/schema/evidence-model.schema.yaml
 ```
 
 ## 7. Responsabilidades
@@ -128,7 +128,7 @@ A validação conceitual pertence a esta RFC.
 
 ## 12. Referências
 
-- `framework/schema/evidence-model.yaml`
+- `framework/schema/evidence-model.schema.yaml`
 - Session Analysis Rule
 - Metrics Specification
 - Session Report Template
