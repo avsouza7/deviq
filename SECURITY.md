@@ -15,10 +15,6 @@ Caso identifique uma vulnerabilidade de segurança:
 
 1. Não abra uma issue pública.
 2. Comunique o mantenedor do projeto por um canal privado.
-3. Inclua uma descrição detalhada, impacto, passos para reprodução e possível mitigação.
+3. Inclua descrição, impacto, reprodução e mitigação proposta.
 
-O recebimento será confirmado e a vulnerabilidade será analisada antes de qualquer divulgação pública.
-
-## Escopo
-
-Esta política cobre os artefatos oficiais do repositório DevIQ durante o Foundation Milestone.
+O recebimento será confirmado e a vulnerabilidade será analisada antes de divulgação pública.
