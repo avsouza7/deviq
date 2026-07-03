@@ -1,43 +1,61 @@
-# Metric Specification Template
+# DevIQ Framework
 
-> Este documento define o padrão para especificação das métricas do DevIQ.
-
-## Identificação
-
-| Campo | Valor |
-|-------|-------|
-| Código | XXX |
-| Nome | |
-| Versão | 1.0.0-alpha |
-| Status | Draft |
+**Artefato:** `framework/metrics/specifications/_template.md`  
+**Versão do Artefato:** 1.1  
+**Status:** Ativo  
+**Categoria:** Template de Especificação de Métrica
 
 ---
 
-## Objetivo
+# Template de Especificação de Métrica
 
-Descreva claramente o que a métrica mede e por que ela existe.
-
----
-
-## Motivação
-
-Explique qual problema esta métrica resolve.
+> Este documento define o padrão oficial para a elaboração das especificações de métricas do DevIQ.
+>
+> Todas as métricas do Framework **devem** seguir esta estrutura, preservando consistência, rastreabilidade e uniformidade documental.
 
 ---
 
-## Entradas
+# 1. Objetivo
 
-Liste os campos do Evidence Model utilizados no cálculo.
+Descreva claramente o propósito da métrica e o que ela mede.
 
-| Campo | Obrigatório | Descrição |
-|-------|-------------|-----------|
-| | | |
+Também deixe explícito o que **não** é medido, quando aplicável.
 
 ---
 
-## Fórmula
+# 2. Escopo
 
-Descreva a fórmula de cálculo em linguagem matemática ou pseudocódigo.
+Defina onde a métrica pode ser utilizada.
+
+Informe limitações de aplicação, quando existirem.
+
+---
+
+# 3. Definições
+
+Apresente os conceitos e símbolos utilizados na especificação.
+
+Todos os termos devem estar alinhados ao domínio do DevIQ.
+
+---
+
+# 4. Entradas
+
+Liste exclusivamente as informações necessárias para o cálculo.
+
+As entradas devem ser derivadas dos contratos oficiais do Framework.
+
+Exemplo:
+
+- Evidence Model
+- Catálogo de Pesos
+- Catálogo de Outcomes
+
+---
+
+# 5. Cálculo
+
+Descreva formalmente a fórmula da métrica.
 
 ```text
 resultado = ...
@@ -45,52 +63,84 @@ resultado = ...
 
 ---
 
-## Escala
+# 6. Domínio
 
-Defina a escala utilizada.
+Informe o intervalo válido dos resultados.
 
 Exemplo:
 
-- 0 a 1
-- 0 a 100
-- Percentual
+```text
+0 ≤ resultado ≤ 1
+```
 
 ---
 
-## Interpretação
+# 7. Interpretação
 
-| Faixa | Significado |
-|--------|-------------|
-| | |
+Defina faixas interpretativas quando fizer sentido.
 
----
-
-## Limitações
-
-Descreva situações em que a métrica pode produzir resultados menos confiáveis.
+Essas faixas possuem finalidade exclusivamente analítica e não devem ser utilizadas como regra de negócio.
 
 ---
 
-## Exemplo de Cálculo
+# 8. Regras
 
-Apresente um exemplo utilizando valores fictícios.
+Documente todas as regras obrigatórias para implementação da métrica.
 
----
+Exemplos:
 
-## Dependências
-
-Liste outras métricas ou componentes necessários, caso existam.
-
----
-
-## Compatibilidade
-
-Informe regras de evolução e compatibilidade da métrica.
+- utilização exclusiva dos catálogos oficiais;
+- independência de provedor;
+- determinismo;
+- utilização apenas de evidências válidas.
 
 ---
 
-## Changelog
+# 9. Casos Especiais
 
-| Versão | Descrição |
-|---------|-----------|
-| 1.0.0-alpha | Primeira versão. |
+Documente situações em que a métrica é indefinida ou exige tratamento específico.
+
+Exemplo:
+
+- divisão por zero;
+- ausência de evidências;
+- ausência de contribuições aceitas.
+
+---
+
+# 10. Não Objetivos
+
+Liste explicitamente o que a métrica não pretende medir.
+
+Esta seção evita interpretações incorretas.
+
+---
+
+# 11. Requisitos de Conformidade
+
+Descreva os requisitos mínimos para que uma implementação seja considerada compatível com o DevIQ.
+
+---
+
+# 12. Referências
+
+Liste os artefatos oficiais utilizados pela métrica.
+
+Exemplo:
+
+- RFCs
+- Evidence Model
+- Schemas
+- Catálogos
+- Outras métricas
+
+---
+
+# Convenções
+
+- Utilizar Português (Brasil).
+- Utilizar linguagem técnica e normativa.
+- Não incorporar constantes de negócio.
+- Não depender de provider específico.
+- Produzir resultados determinísticos.
+- Manter consistência com os contratos oficiais do Framework.
