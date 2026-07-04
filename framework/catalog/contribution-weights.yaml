@@ -1,0 +1,37 @@
+version: 1.0.0-alpha
+
+weights:
+
+  simple_fix:
+    weight: 1
+    description: Correções simples, ajustes pontuais e pequenas alterações.
+
+  localized_refactoring:
+    weight: 2
+    description: Refatorações localizadas sem alteração significativa da arquitetura.
+
+  implementation:
+    weight: 3
+    description: Implementação de funcionalidades ou regras de negócio.
+
+  structural_refactoring:
+    weight: 4
+    description: Refatorações estruturais com impacto relevante na organização do código.
+
+  architecture:
+    weight: 5
+    description: Definição ou evolução de arquitetura, contratos ou desenho da solução.
+
+  critical_investigation:
+    weight: 5
+    description: Investigação técnica que identifica a causa raiz de problemas complexos.
+
+rules:
+  minimum_weight: 1
+  maximum_weight: 5
+  default_weight: 1
+
+notes:
+  - Os pesos são definidos pelo Framework e independem do Provider.
+  - Alterações neste catálogo não modificam a especificação das métricas.
+  - Novas categorias devem preservar a comparabilidade entre versões.

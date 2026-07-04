@@ -1,0 +1,33 @@
+version: 1.0.0-alpha
+
+outcomes:
+
+  accepted:
+    factor: 1.00
+    description: A contribuição foi utilizada integralmente na solução final.
+
+  modified:
+    factor: 0.75
+    description: A contribuição foi utilizada após adaptações realizadas pelo desenvolvedor.
+
+  partially_accepted:
+    factor: 0.50
+    description: Apenas parte da contribuição foi aproveitada.
+
+  inspiration:
+    factor: 0.25
+    description: A contribuição serviu como referência para a solução final, mas não foi utilizada diretamente.
+
+  discarded:
+    factor: 0.00
+    description: A contribuição não foi utilizada.
+
+rules:
+  minimum_factor: 0.00
+  maximum_factor: 1.00
+  default_outcome: discarded
+
+notes:
+  - Os fatores são definidos pelo Framework.
+  - Os Providers apenas classificam o resultado de cada contribuição.
+  - Alterações neste catálogo devem preservar a comparabilidade entre versões.

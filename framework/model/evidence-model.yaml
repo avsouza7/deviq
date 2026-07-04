@@ -1,0 +1,56 @@
+schema_version: 1.0.0
+
+metadata:
+  report_id: ""
+  framework_version: "1.0.0-alpha"
+  provider:
+    name: ""
+    version: ""
+  generated_at: ""
+
+issue:
+  key: ""
+  title: ""
+  type: ""
+  project: ""
+  priority: ""
+  labels: []
+
+git:
+  repository: ""
+  branch: ""
+  commits: []
+  pull_request: ""
+
+session:
+  started_at: ""
+  finished_at: ""
+  duration_seconds: 0
+  confidence: 0.0
+
+analysis:
+  objective: ""
+  summary: ""
+  task_type: ""
+  prompt_groups: []
+  categories: []
+  collaboration_points: []
+  evidence: []
+  discarded_suggestions: []
+  assumptions: []
+
+metrics:
+  iai: null
+  aips: null
+  icp: null
+  roi: null
+
+knowledge:
+  lessons_learned: []
+  best_prompts: []
+  reusable_patterns: []
+  recommendations: []
+
+developer_notes: []
+
+limitations: []
