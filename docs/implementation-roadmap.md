@@ -47,6 +47,12 @@ o Architecture Freeze.
 -   Implementação do provider de referência
 -   Testes de integração
 
+## Status
+
+- Architecture Freeze: Concluído
+- Fase atual: Foundation
+- Próximo marco: Estrutura do Core Domain
+
 ## Definition of Done
 
 -   Contratos implementados.

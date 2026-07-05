@@ -2,7 +2,7 @@
 
 ## Data
 
-2026-07-03
+2026-07-05
 
 ## Estado Atual
 
@@ -32,15 +32,18 @@ Concluída.
 
 ## Próximo marco
 
-Architecture Freeze
+Implementação de Referência
 
 ## Próximos objetivos
 
--   Revisão arquitetural final.
--   Consolidação da documentação.
--   Preparação para implementação de referência.
+-   Estruturar a implementação de referência.
+-   Definir os módulos base do framework.
+-   Iniciar os artefatos de implementação.
+
+## Architecture Freeze
+
+Concluído em 2026-07-05.
 
 ## Observações
 
-O domínio canônico encontra-se formalizado. As próximas atividades
-concentram-se na consolidação e implementação.
+A arquitetura canônica encontra-se congelada. As próximas atividades concentram-se na implementação de referência.

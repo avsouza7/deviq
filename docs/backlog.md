@@ -2,7 +2,7 @@
 
 > Backlog consolidado do projeto DevIQ.
 
-**Última atualização:** 2026-07-03
+**Última atualização:** 2026-07-05
 
 ---
 
@@ -121,6 +121,22 @@ Separação entre catálogos, especificações e algoritmos.
 - Validação cruzada entre artefatos
 
 ---
+
+---
+
+# Marco Arquitetural
+
+## Concluído
+
+- Architecture Freeze
+
+## Próxima fase
+
+- Implementação de Referência
+- Estrutura do Core Domain
+- Builder da especificação
+- Testes de conformidade
+
 
 # Fora do Escopo da v0.1
 

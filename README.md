@@ -39,13 +39,19 @@ Concluído:
 
 Foundation Milestone: **Concluído**
 
-Em evolução:
+Concluído:
 
 - RFC-002 — Contribution Model
 - Rules
 - Reports
 - Validation
 - Providers
+
+Próxima etapa:
+
+- Architecture Freeze
+- Consolidação da documentação
+- Implementação de referência
 
 ## Documentação
 
