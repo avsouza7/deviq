@@ -6,42 +6,29 @@
 
 ## Objetivo
 
-Formalizar o congelamento da arquitetura canônica do DevIQ após a conclusão
-das RFCs, épicos e modelos fundamentais.
+Formalizar o congelamento da arquitetura do DevIQ após a conclusão do Foundation Milestone, das RFCs e da definição do domínio canônico.
 
 ## Escopo do congelamento
 
-Os seguintes componentes passam a ser considerados estáveis:
+Este marco estabelece como estáveis:
 
-- RFC-001
-- RFC-002
-- Modelo Canônico de Evidências
-- Session Analysis
-- Reporting
-- Knowledge
-- Providers
-- Validation
-- Métricas oficiais (IAI, AIPS e ICP)
-- Contratos públicos da especificação
+- Modelo de Evidências;
+- RFC-001;
+- RFC-002;
+- Modelo de Sessões;
+- Modelo de Interações;
+- Modelo de Contribuições;
+- Métricas oficiais (IAI, AIPS e ICP);
+- Contratos públicos da especificação.
 
-## Regras
+## Diretrizes
 
 A partir deste marco:
 
-- Alterações no domínio canônico exigem nova RFC.
-- Evoluções incrementais devem preservar compatibilidade com a especificação.
-- Implementações de referência podem evoluir sem alterar o domínio.
+- alterações no domínio canônico devem ocorrer por meio de novas RFCs;
+- implementações podem evoluir sem alterar a especificação consolidada;
+- novas funcionalidades experimentais devem permanecer isoladas da especificação oficial.
 
 ## Próxima fase
 
-A evolução do projeto passa a concentrar-se em:
-
-1. Implementação de referência.
-2. Builder da especificação.
-3. Geração automática de documentação.
-4. Testes de conformidade.
-
-## Resultado
-
-A arquitetura do DevIQ é considerada congelada para início da implementação
-de referência.
+Com a arquitetura estabilizada, o foco do projeto passa a ser a Implementação de Referência e as ferramentas de geração derivadas da especificação.
