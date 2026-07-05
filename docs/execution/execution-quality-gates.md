@@ -5,54 +5,96 @@
 Definir os critérios mínimos de qualidade que uma execução do `deviq run` deve
 atender antes que seus resultados sejam considerados confiáveis.
 
-## Quality Gates
+Os Quality Gates funcionam como pontos de controle do pipeline.
 
-### GQ-01 — Configuração válida
+## Gates
 
-- Configuration validada
-- Compatibility aprovada
-- Run Context criado
+### GQ-01 — Configuração
 
-### GQ-02 — Coleta mínima
+Verifica:
 
-- Collection Plan executado
-- Evidências coletadas
-- Nenhum erro bloqueante
+- Configuration válida;
+- Execution Profile válido;
+- Providers compatíveis.
 
-### GQ-03 — Evidências utilizáveis
+**Falha bloqueia a execução.**
 
-- Evidências normalizadas
-- Validação concluída
-- Quality Score calculado
+---
+
+### GQ-02 — Descoberta
+
+Verifica:
+
+- Discover concluído;
+- Collection Plan gerado;
+- Collectors válidos.
+
+---
+
+### GQ-03 — Evidências
+
+Verifica:
+
+- Evidence Model válido;
+- Cobertura mínima;
+- Evidências utilizáveis.
+
+---
 
 ### GQ-04 — Rastreabilidade
 
-- Todas as saídas referenciam suas Evidências
-- Traceability Model íntegro
+Verifica:
+
+- Todos os artefatos possuem origem rastreável;
+- Traceability Model consistente.
+
+---
 
 ### GQ-05 — Conhecimento
 
-- Knowledge Model gerado
-- Confidence calculada
+Verifica:
+
+- Knowledge Model produzido;
+- Confidence mínima configurada.
+
+---
 
 ### GQ-06 — Métricas
 
-- Métricas oficiais calculadas
-- Scores derivados disponíveis
+Verifica:
+
+- Métricas oficiais calculadas;
+- Cálculo reproduzível.
+
+---
 
 ### GQ-07 — Relatório
 
-- Report Model gerado
-- Execution Summary gerado
-- Execution Result publicado
+Verifica:
 
-## Regras
+- Report Model gerado;
+- Execution Summary disponível;
+- Execution Result publicado.
 
-- Gates podem ser informativos ou bloqueantes.
-- Toda reprovação deve ser registrada no Execution Manifest.
-- A aprovação dos gates compõe a avaliação de Completude da execução.
+## Resultado
 
-## Objetivo
+Cada Gate produz:
 
-Fornecer critérios objetivos para determinar se uma execução do DevIQ produziu
-resultados suficientemente confiáveis para consumo.
+- Gate ID
+- Status (Passed / Failed / Warning)
+- Justificativa
+- Timestamp
+
+Os resultados são registrados no Execution Manifest.
+
+## Relação
+
+Configuration
+↓
+Execution Pipeline
+↓
+Quality Gates
+↓
+Execution Manifest
+↓
+Execution Result
