@@ -2,7 +2,7 @@
 
 ## Data
 
-2026-07-03
+2026-07-05
 
 ## Estado Atual
 
@@ -30,15 +30,19 @@ Concluída.
 
 `framework/rfc-002/interaction-engine.md`
 
+## Último marco
+
+Architecture Freeze (Concluído)
+
 ## Próximo marco
 
-Architecture Freeze
+Implementação de Referência
 
 ## Próximos objetivos
 
--   Revisão arquitetural final.
--   Consolidação da documentação.
--   Preparação para implementação de referência.
+-   Estruturar a implementação de referência.
+-   Definir módulos iniciais.
+-   Iniciar desenvolvimento do núcleo do framework.
 
 ## Observações
 
