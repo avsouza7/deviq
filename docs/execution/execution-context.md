@@ -2,37 +2,37 @@
 
 ## Objetivo
 
-Definir o Contexto de Execução utilizado durante um `deviq run`.
-
-O Contexto de Execução reúne todas as informações necessárias para que os
-componentes do pipeline compartilhem uma visão consistente da execução.
-
-## Componentes do Contexto
-
-- Projeto
-- Workspace
-- Branch
-- Session ID
-- Run ID
-- Configuration
-- Execution Profile
-- Collection Plan
-- Collectors habilitados
+Definir o Contexto de Execução compartilhado por todos os componentes durante uma
+execução do `deviq run`.
 
 ## Fontes de Contexto
 
 - Workspace
 - Código-fonte
-- Git
+- Repositório Git
 - Conversas com IA
 - Documentação do projeto
-- Arquivos de configuração
+- Arquivo de configuração
+- Perfil de execução
+
+## Componentes
+
+O contexto consolida:
+
+- Run ID
+- Session ID
+- Projeto
+- Branch
+- Configuration
+- Execution Profile
+- Collection Plan
 
 ## Regras
 
+- Existe um único contexto por execução.
 - O contexto é criado antes da etapa Discover.
-- O contexto permanece imutável durante a execução.
-- Todos os Engines compartilham a mesma instância lógica do contexto.
+- Após criado, permanece imutável.
+- Todos os Engines recebem exatamente o mesmo contexto.
 
 ## Relação
 
@@ -46,5 +46,5 @@ Execution Engine
 
 ## Objetivo
 
-Garantir consistência, reprodutibilidade e compartilhamento de informações
-entre todas as etapas do pipeline do DevIQ.
+Garantir que todas as etapas do pipeline operem sobre o mesmo conjunto de
+informações, preservando consistência e reprodutibilidade.
