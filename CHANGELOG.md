@@ -6,54 +6,43 @@ Este projeto adota Versionamento Semântico (SemVer) e um modelo de changelog or
 
 ---
 
-## v0.1.0-alpha
+## v0.2.0-alpha
 
-> Foundation Milestone concluído.
+> Architecture Baseline concluída.
 
 ### Arquitetura
 
-- Definição da arquitetura base do DevIQ.
-- Separação entre Framework e Providers.
-- Arquitetura orientada por contratos (Contract First).
-- Canonical Evidence Model estabelecido como contrato central.
-- Arquitetura Schema Driven.
+- Architecture Freeze concluído.
+- RFC-001 — Evidence Model concluída.
+- RFC-002 — Contribution Model concluída.
+- Arquitetura Contract First consolidada.
+- Framework desacoplado de Providers.
+- Canonical Evidence Model consolidado.
 
 ### Core Framework
 
-- RFC-001 — Evidence Model.
-- Canonical Evidence Model.
-- JSON Schema oficial.
-- Catálogo de pesos de contribuição.
-- Catálogo de resultados de contribuição.
-- Exemplos oficiais (Minimal e Complete).
+- Contribution Engine especificado.
+- Metric Engine especificado.
+- Session Analysis especificada.
+- Reporting especificado.
+- Contratos e modelos consolidados.
 
 ### Métricas
 
-- Especificação da métrica IAI.
-- Especificação da métrica AIPS.
-- Especificação da métrica ICP.
+- IAI.
+- AIPS.
+- ICP.
 
 ### Documentação
 
-- README.
-- CONTRIBUTING.
-- CHANGELOG.
-- CODE_OF_CONDUCT.
-- Documentação do Foundation Milestone.
-
-### Architecture Review
-
-- Revisão arquitetural concluída.
-- Nenhum bloqueio arquitetural identificado.
-- RFC-002 definida como próxima evolução do domínio.
-- Especificação de ROI adiada até a conclusão da RFC-002.
+- README atualizado.
+- Documentação arquitetural consolidada.
+- Handoff e Evolution Summary atualizados.
+- Project Status estabelecido como fonte oficial do estado do projeto.
 
 ### Próximos Passos
 
-- Foundation Freeze.
-- RFC-002 — Contribution Model.
-- Contribution Engine.
-- Metric Engine.
-- Session Analysis.
-- Reporting.
-- Providers.
+- Implementação de referência.
+- Providers oficiais.
+- Testes de integração.
+- Release beta.
