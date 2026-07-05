@@ -1,3 +1,20 @@
 # Execution State Machine
 
-CREATED, INITIALIZING, LOADING_CONTEXT, ANALYZING_SESSION, ANALYZING_IMPACT, PLANNING, GENERATING, VALIDATING, UPDATING_KNOWLEDGE, COMPLETED, FAILED.
+## Objetivo
+
+Definir a máquina de estados oficial do `deviq run`.
+
+## Estados
+
+CREATED → INITIALIZING → LOADING_CONTEXT → DISCOVERING → COLLECTING →
+NORMALIZING → ANALYZING → GENERATING_REPORT → COMPLETED
+
+Estados alternativos:
+
+- FAILED
+- CANCELLED
+
+## Regras
+
+- Toda transição é registrada.
+- Estados finais são imutáveis.
