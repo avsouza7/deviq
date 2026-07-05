@@ -30,10 +30,6 @@ Concluída.
 
 `framework/rfc-002/interaction-engine.md`
 
-## Último marco
-
-Architecture Freeze (Concluído)
-
 ## Próximo marco
 
 Implementação de Referência
@@ -41,10 +37,13 @@ Implementação de Referência
 ## Próximos objetivos
 
 -   Estruturar a implementação de referência.
--   Definir módulos iniciais.
--   Iniciar desenvolvimento do núcleo do framework.
+-   Definir os módulos base do framework.
+-   Iniciar os artefatos de implementação.
+
+## Architecture Freeze
+
+Concluído em 2026-07-05.
 
 ## Observações
 
-O domínio canônico encontra-se formalizado. As próximas atividades
-concentram-se na consolidação e implementação.
+A arquitetura canônica encontra-se congelada. As próximas atividades concentram-se na implementação de referência.
