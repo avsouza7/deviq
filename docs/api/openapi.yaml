@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: DevIQ API
+  version: 1.0.0
+  description: Public API for DevIQ execution results.
+
+servers:
+  - url: https://api.deviq.dev/api/v1
+
+paths:
+  /executions:
+    get:
+      summary: List executions
+      operationId: listExecutions
+      responses:
+        "200":
+          description: Execution list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExecutionList"
+
+    post:
+      summary: Start an execution
+      operationId: createExecution
+      responses:
+        "202":
+          description: Execution accepted
+
+  /executions/{executionId}:
+    get:
+      summary: Get execution
+      operationId: getExecution
+      parameters:
+        - $ref: "#/components/parameters/ExecutionId"
+      responses:
+        "200":
+          description: Execution details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Execution"
+
+  /summaries/{executionId}:
+    get:
+      summary: Get Executive Summary
+      parameters:
+        - $ref: "#/components/parameters/ExecutionId"
+      responses:
+        "200":
+          description: Executive Summary
+
+  /metrics/{executionId}:
+    get:
+      summary: Get Metrics
+      parameters:
+        - $ref: "#/components/parameters/ExecutionId"
+      responses:
+        "200":
+          description: Metrics
+
+  /recommendations/{executionId}:
+    get:
+      summary: Get Recommendations
+      parameters:
+        - $ref: "#/components/parameters/ExecutionId"
+      responses:
+        "200":
+          description: Recommendations
+
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  parameters:
+    ExecutionId:
+      name: executionId
+      in: path
+      required: true
+      schema:
+        type: string
+
+  schemas:
+    Execution:
+      type: object
+      required:
+        - id
+        - status
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        project:
+          type: string
+
+    ExecutionList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Execution"
+
+security:
+  - ApiKey: []
