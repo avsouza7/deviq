@@ -1,4 +1,5 @@
-A ideia do projeto nasceu da necessidade pratica. Eu uso intellij com chat integrado, vou codando com IA assistinda, quero ao final do ciclo pedir, "rode deveiq" a saida deve ser a contribuição efetiva, resumo de pronpt, aprendizados, metricas etc".
+Tenho uma necessidade pratica.
+Eu uso intellij com chat integrado, vou "codando" com IA assistinda, quero ao final do ciclo pedir, "rode deveiq" a saida deve ser a contribuição efetiva, resumo de pronpt, aprendizados, metricas etc".
 
 O produto não é um framework de documentação.
 
